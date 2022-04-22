@@ -1,25 +1,42 @@
-import React from 'react';
-import {Text,View,StyleSheet} from 'react-native';
+import * as React from 'react';
+import { View, Text,StyleSheet,Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SignUp from './src/AuthScreens/SignUp';
+import Verify from './src/AuthScreens/Verify';
+import BankBvnValidation from './src/AuthScreens/BankBvnValidation';
+import SetPin from './src/AuthScreens/SetPin';
 
 
-const App = () => {
-  
+
+function DetailsScreen() {
   return (
-    <View style = {styles.container}>
-      <View>
-        <Text>Hello World</Text>
-      </View>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Screen</Text>
     </View>
   );
-};
+}
 
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  
-  
-});
+const Stack = createNativeStackNavigator();
 
-export default App;
+export default function App() {
+  return (
+    <NavigationContainer>
+       <Stack.Navigator 
+       initialRouteName="Root"
+        screenOptions={{
+          headerShown: false,
+        }}
+       >
+        <Stack.Screen name="Root" component={SignUp}/>
+        <Stack.Screen name="Verify" component={Verify} />
+        <Stack.Screen name="BankBvnValidation" component={BankBvnValidation} />
+        <Stack.Screen name="SetPin" component={SetPin} />
+
+        
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+
