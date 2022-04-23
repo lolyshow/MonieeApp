@@ -2,8 +2,9 @@ import {StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex:1,
-      marginTop: 100,
+      marginTop: 60,
       paddingHorizontal: 24,
+      paddingVertical:15
       
     },
     titleText:{
@@ -30,12 +31,13 @@ const styles = StyleSheet.create({
     },
 
     numberPad:{
-      alignSelf:'center'
+      alignSelf:'center',
+      width:100,
     },
     number:{
       fontWeight:'500',
       fontSize:21,
-      color:"#828282",
+      color:"#0C0C26",
       textAlign:'center',
       marginTop:10,
       lineHeight:24.77
@@ -44,9 +46,13 @@ const styles = StyleSheet.create({
     //bank bvn validation Style
     bankBvnInputField:{backgroundColor:"#E5E5E5",
     borderRadius:18,fontFamily:"ABeeZee",fontStyle:"italic",
-    fontSize:14,fontWeight:"400"}
+    fontSize:14,fontWeight:"400"},
     
-    
+
+    //tokenField Style
+    tokenTextStyle:{letterSpacing:10,fontSize:40,textAlign:'center',fontWeight:'normal'},
+    tokenFieldContainerStyle:{height:50,width:168,justifyContent:'center'},
+    tokenContainerWrapper:{alignItems:'center',marginTop:40,}
 });
 
 const button = StyleSheet.create({

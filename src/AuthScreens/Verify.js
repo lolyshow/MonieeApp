@@ -13,7 +13,12 @@ function Verify ({navigation}){
     }
 
     return (
-      <View style = {styles.container}>
+      <View style = {[styles.container]}>
+
+        <View>
+          <Text>hi</Text>
+        </View>
+
         <View>
             <View style= {{marginBottom:8}}>
                 <Text style = {[styles.titleText,]} >Verification</Text>

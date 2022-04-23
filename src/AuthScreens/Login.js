@@ -1,30 +1,28 @@
 import React,{useState} from 'react';
 import {styles,button} from "../utils/styles";
-import { View, Text,StyleSheet,Button } from 'react-native';
+import { View, Text } from 'react-native';
 import InputField from '../components/InputField';
 import ButtonComponent from '../components/ButtonComponent';
 
-function SignUp ({navigation}){
+function Login ({navigation}){
     const [phoneNumber, setPhoneNumber] = useState("");
 
     const handleSubmit =()=>{
-      navigation.navigate("Verify")
+      navigation.navigate("PinAuth")
     }
 
     return (
       <View style = {styles.container}>
-        
         <View>
             <View style= {{}}>
-                <Text style = {[styles.titleText,{marginBottom:8}]} >Let’s begin</Text>
-                <Text style = {styles.bodyText} >Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
+                <Text style = {[styles.titleText,{marginBottom:8}]} >Login</Text>
+                <Text style = {styles.bodyText} >Enter your phone number</Text>
             </View>
 
             <View>
                 <InputField
                     onChangeText={(text) => setPhoneNumber(text)}
                     inputValue={phoneNumber}
-                    inputLabel="Phone Number"
                     placeholder="Phone Number"
                     inputStyle = {{backgroundColor:"#E5E5E5",marginTop:20,borderRadius:18}}
                 />
@@ -33,7 +31,7 @@ function SignUp ({navigation}){
             <View>
 
                <ButtonComponent
-                    title="Get Started"
+                    title="Continue"
                     styleButton={{marginTop: 220,borderRadius:16}}
                     onPress={handleSubmit}
                     buttonTittle={{color:"#FFFFFF",fontSize:14}}
@@ -43,4 +41,4 @@ function SignUp ({navigation}){
       </View>
     );
   }
-export default SignUp;
+export default Login;

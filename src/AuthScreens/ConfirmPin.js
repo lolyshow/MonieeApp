@@ -1,16 +1,17 @@
 import React,{useState,useEffect} from 'react';
-import {styles} from "../utils/styles";
+import {styles,} from "../utils/styles";
 import { View, Text, ScrollView } from 'react-native';
 import KeypadComponent from '../components/KeypadComponent';
 import TokenField from './TokenField';
 
-function SetPin ({navigation}){
+function ConfirmPin ({navigation}){
+    const [phoneNumber, setPhoneNumber] = useState("");
     const [pin, setPin] = useState("");
     const [maskedPin, setMaskedPin] = useState("");
     useEffect(()=>{
-        // this would be called when the value of supportedBills has changed/updated
+        //this would be called when the lenght of pin reaches 4
         if(pin.length == 4){
-            navigation.navigate("ConfirmPin");
+            navigation.navigate("Login")
         }
     },[pin])
 
@@ -52,28 +53,27 @@ function SetPin ({navigation}){
 
     return (
       <View style = {styles.container}>
-        <ScrollView showsVerticalScrollIndicator = {false}>
+        <View>
             <View style= {{marginBottom:8}}>
-                <Text style = {[styles.titleText,]} >Set PIN</Text>
-                <Text style = {styles.bodyText} >Facilisis mauris, potenti vitae cras risus.</Text>
+                <Text style = {[styles.titleText,]} >Confirm PIN</Text>
+                <Text style = {[styles.bodyText,{marginTop:8}]} >Facilisis mauris, potenti vitae cras risus.</Text>
             </View>
+            <ScrollView showsVerticalScrollIndicator = {false}>
+                <View>
+                    <TokenField maskedPin = {maskedPin}/>
+                </View>
+                <View>
 
-            <>
-                <TokenField 
-                maskedPin = {maskedPin}
-                />
-            </>
-            <>
-
-                <KeypadComponent
-                    actionBtnClicked = {actionBtnClicked}
-                    setPinFunc = {setPinFunc}
-                    numbersPad = {numbersPad}
-              />
-            </>
-            
-        </ScrollView>
+                    <KeypadComponent
+                        actionBtnClicked = {actionBtnClicked}
+                        setPinFunc = {setPinFunc}
+                        numbersPad = {numbersPad} 
+                    />
+                
+                </View>
+            </ScrollView>
+        </View>
       </View>
     );
   }
-export default SetPin;
+export default ConfirmPin;
