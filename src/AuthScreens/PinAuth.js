@@ -3,14 +3,24 @@ import {styles,} from "../utils/styles";
 import { View, Text, ScrollView } from 'react-native';
 import KeypadComponent from '../components/KeypadComponent';
 import TokenField from './TokenField';
+import { setSignIn } from '../redux/slices/authSlice';
+import {useSelector, useDispatch} from 'react-redux';
+
 
 function PinAuth ({navigation}){
     const [pin, setPin] = useState("");
     const [maskedPin, setMaskedPin] = useState("");
+    const dispatch = useDispatch();
+
     useEffect(()=>{
         // this will be called when the lenght of pin reaches 4
         if(pin.length == 4){
             // navigation.navigate("Login")
+            const user = {
+                isLoggedIn: true,
+            };
+        
+            dispatch(setSignIn(user));
         }
     },[pin])
 
@@ -27,7 +37,6 @@ function PinAuth ({navigation}){
             let mask = maskedPin.toString();
             nepin+=number;
             mask+="•";
-            // console.log(nepin);
             setMaskedPin(mask)
             setPin(nepin)
         }

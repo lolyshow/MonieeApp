@@ -2,10 +2,11 @@ import {StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex:1,
-      marginTop: 60,
+      // marginTop: 60,
       paddingHorizontal: 24,
-      paddingVertical:15
-      
+      paddingVertical:15,
+      paddingTop:40,
+      backgroundColor:"#FFFF"
     },
     titleText:{
       fontFamily:"Abhaya-Libre-Medium",
