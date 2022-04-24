@@ -1,44 +1,68 @@
 import React,{useState} from 'react';
 import {styles,button} from "../../utils/styles";
-import { View, Text,StyleSheet,Button } from 'react-native';
+import { View, Text,Image,Button, ScrollView, StatusBar } from 'react-native';
 import InputField from '../../components/InputField';
 import ButtonComponent from '../../components/ButtonComponent';
+import MaskedTokenComponent from '../../components/MaskedTokenComponent';
+import colors from '../../utils/colors';
+import KeypadComponent from '../../components/KeypadComponent';
+import HeaderComponent from '../../components/HeaderComponent';
+import AmountCard from '../../components/AmountCard';
 
 function RequestMoney ({navigation}){
     const [phoneNumber, setPhoneNumber] = useState("");
-
+    const [pin, setPin] = useState("");
+    const [maskedPin, setMaskedPin] = useState("");
     const handleSubmit =()=>{
-      navigation.navigate("Verify")
+        navigation.navigate("RequestMoney");
     }
+    
+
+    
+
 
     return (
-      <View style = {styles.container}>
+      <View style = {[styles.container,]}>
+        <StatusBar barStyle="dark-content" backgroundColor="#ecf0f1" />
         
         <View>
-            <View style= {{}}>
-                <Text style = {[styles.titleText,{marginBottom:8}]} >Let’s begin</Text>
-                <Text style = {styles.bodyText} >Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
-            </View>
+            
+            <>
 
-            <View>
-                <InputField
-                    onChangeText={(text) => setPhoneNumber(text)}
-                    inputValue={phoneNumber}
-                    inputLabel="Phone Number"
-                    placeholder="Phone Number"
-                    inputStyle = {{backgroundColor:"#E5E5E5",marginTop:20,borderRadius:18}}
+                <HeaderComponent
+                    path = "false"
+                    title = {"Request Money"}
                 />
-            </View>
+            </>
 
-            <View>
 
-               <ButtonComponent
-                    title="Get Started"
-                    styleButton={{marginTop: 220,borderRadius:16}}
-                    onPress={handleSubmit}
-                    buttonTittle={{color:"#FFFFFF",fontSize:14}}
-              />
-            </View>
+            <ScrollView showsVerticalScrollIndicator={false}>
+                
+                <View>
+                <AmountCard
+                  title = {"Request"}
+                  amount = {"₦ 15,000"}
+                />
+                </View>
+
+                
+
+
+
+                <View style ={{marginTop:120}}>
+
+                        <ButtonComponent
+                            title="Request"
+                            styleButton={{borderRadius:16,width:312,backgroundColor:colors.GREY}}
+                            onPress={handleSubmit}
+                            buttonTittle={{color:"#828282",fontSize:14,fontWeight:"800"}}
+                        />
+
+                        
+                        
+                
+                </View>
+            </ScrollView>
         </View>
       </View>
     );
