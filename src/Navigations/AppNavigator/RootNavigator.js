@@ -15,6 +15,8 @@ function TabNavigation(){
         tabBarActiveTintColor:colors.SECONDARY,
         tabBarInactiveTintColor: 'black',
         headerShown: false,
+        showLabel: false,
+        tabBarShowLabel:false,
         tabBarStyle:{backgroundColor:"#FFFF",elevation:0,borderTopWidth:0}
       }}>
       <Tab.Screen
@@ -55,6 +57,7 @@ function TabNavigation(){
         name="Account"
         options={{
           title: 'Account',
+          showLabel: false,
           tabBarIcon: ({focused}) => (
             <Image
               source={require('../../assets/images/profile.png')}

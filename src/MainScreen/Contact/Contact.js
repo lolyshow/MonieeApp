@@ -1,10 +1,11 @@
 import React,{useState,useEffect} from 'react';
 import {styles,button} from "../../utils/styles";
-import { View, Text,Image,Button, ScrollView,Alert, StatusBar, Platform, PermissionsAndroid } from 'react-native';
+import { View, Text,Image,Button, ScrollView,Alert, StatusBar, Platform, PermissionsAndroid, TouchableOpacity } from 'react-native';
 import Contacts from 'react-native-contacts';
 import {Avatar} from 'react-native-paper';
 import ButtonComponent from '../../components/ButtonComponent';
 import colors from '../../utils/colors';
+import SearchBar from "../../components/SearchBar";
 // const { status } = await Contacts.requestPermissionsAsync();
 const contact = [
     {
@@ -116,8 +117,12 @@ const handleSubmitSend =()=>{
 
 }
 
+
+
 function Contact({}){
     // const [contact, setContacts] = useState(null);
+    const [searchPhrase, setSearchPhrase] = useState(null);
+    const [clicked, setClicked]= useState(false);
     useEffect(() => {
     //    if(Platform.OS === "ios"){
     //        Contacts.getAll((err, contact)=>{
@@ -160,10 +165,19 @@ function Contact({}){
             // contacts returned
           })
     }
+
+    
     let num = 0;
 
     return (
     <View style = {[styles.container]}>
+
+        <SearchBar
+            searchPhrase={searchPhrase}
+            setSearchPhrase={(text) => setSearchPhrase(text)}
+            setClicked={(clicked) => setClicked(clicked)}
+        />
+
         <View style ={{}}>
             <Avatar.Image 
                 source={{
@@ -179,25 +193,26 @@ function Contact({}){
             
                     
                     <View style = {{flexDirection:"row",justifyContent:'space-between'}}>
-                        <View style = {{flexDirection:"row",marginTop:40}}>
-                            <View style ={{}}>
-                                <Avatar.Image 
+                        <TouchableOpacity onPress={()=>null}>
+                            <View style = {{flexDirection:"row",marginTop:40}}>
+                                <View style ={{}}>
+                                    <Avatar.Image 
+                                        
+                                        source={{
+                                            uri: 'https://api.adorable.io/avatars/50/abott@adorable.png'
+                                        }}
+                                        size={40}
+                                    />
                                     
-                                    source={{
-                                        uri: 'https://api.adorable.io/avatars/50/abott@adorable.png'
-                                    }}
-                                    size={50}
-                                />
-                                
+                                </View>
+
+                                <View style ={{marginLeft:10,}}>
+                                    <Text style = {{color:"#828282"}}>Phillip Olalere</Text>
+                                    <Text style = {{fontWeight:"400",fontFamily:"ABeeZee",fontSize:12,color:"#0C0C26"}}>+2347035666498</Text>
+                                </View>
                             </View>
 
-                            <View style ={{marginLeft:10,}}>
-                                <Text>Phillip Olalere</Text>
-                                <Text>+2347035666498</Text>
-                            </View>
-                        </View>
-
-
+                        </TouchableOpacity>
                         <View style = {{marginTop:40,borderWidth:1,borderColor:"#E0E0E0", width:20,height:20,borderRadius:16}}> 
                             
                         </View>
@@ -211,7 +226,7 @@ function Contact({}){
 
             <ButtonComponent
                 title="Request"
-                styleButton={{borderRadius:16,width:312,backgroundColor:colors.SECONDARY}}
+                styleButton={{borderRadius:16,width:312,backgroundColor:colors.SECONDARY,marginTop:40}}
                 onPress={handleSubmitSend}
                 buttonTittle={{color:"#FFFFFF",fontSize:14,fontWeight:"800"}}
             />

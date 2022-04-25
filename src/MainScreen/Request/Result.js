@@ -6,8 +6,9 @@ import colors from '../../utils/colors';
 import KeypadComponent from '../../components/KeypadComponent';
 import HeaderComponent from '../../components/HeaderComponent';
 
-function Result ({navigation}){
-    
+function Result ({navigation,route}){
+
+    console.log(route)
 
     const handleSubmit =()=>{
         navigation.navigate("FundRequest");
@@ -27,14 +28,14 @@ function Result ({navigation}){
         </View>
         <View style = {{justifyContent:'space-between',height:300}}>
             <View style = {{}}>
-                <Text style = {[styles.titleText,{textAlign:'center'}]}>Request sent</Text>
+                <Text style = {[styles.titleText,{textAlign:'center'}]}>{route.params?.message}</Text>
 
                 <Text style = {[styles.titleText,{textAlign:'center',fontSize:14,fontWeight:"400",fontFamily:'ABeeZee',color:"#4F4F4F"}]}>Your request for ₦2,000 to Terry and 5 others has been sent</Text>
             </View>
 
             <View style = {{alignContent:'center',alignSelf:'center'}}>
                 <ButtonComponent
-                    title="Go Home"
+                    title={route.params?.btntext}
                     styleButton={{borderRadius:16,width:312,backgroundColor:colors.GREY}}
                     onPress={handleSubmit}
                     buttonTittle={{color:"#828282",fontSize:14,fontWeight:"800"}}

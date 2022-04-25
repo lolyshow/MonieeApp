@@ -23,7 +23,7 @@ function RequestMoney ({navigation}){
               isLoggedIn: true,
           };
       
-          navigation.navigate("Result");
+          navigation.navigate("Result",{message:"Request Sent",btntext:"Go Home"});
       }
     },[pin])
 
@@ -106,12 +106,12 @@ function RequestMoney ({navigation}){
 
                 <View>
                   <InputField
-                      onChangeText={(text) => setPhoneNumber(text)}
-                      inputValue={phoneNumber}
-                      placeholder="Phone number"
-                      inputWrapperStyle = {{justifyContent:"space-between", marginTop:10, flexDirection:"row",backgroundColor:"#E5E5E5",borderRadius:18,}}
-                      inputStyle = {{backgroundColor:"#E5E5E5",marginTop:0,width:250}}
-                      showBook = {true}
+                    onChangeText={(text) => setPhoneNumber(text)}
+                    inputValue={phoneNumber}
+                    placeholder="Phone number"
+                    inputWrapperStyle = {{justifyContent:"space-between", marginTop:10, flexDirection:"row",backgroundColor:"#E5E5E5",borderRadius:18,}}
+                    inputStyle = {{backgroundColor:"#E5E5E5",marginTop:0,width:250}}
+                    showBook = {true}
                   />
                 </View>
 

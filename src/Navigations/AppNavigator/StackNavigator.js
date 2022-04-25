@@ -9,31 +9,8 @@ import SendMoney from '../../MainScreen/Request/SendMoney';
 import Result from '../../MainScreen/Request/Result';
 
 
-function SettingsScreen({navigation}) {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text onPress = {()=>navigation.navigate("About")}>Home</Text>
-    </View>
-  );
-}
 
 
-function About({navigation}) {
-return (
-  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text onPress = {()=>navigation.navigate("Abouts")}>Abouts</Text>
-  </View>
-);
-}
-
-
-function Abouts({navigation}) {
-return (
-  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text onPress = {()=>navigation.navigate("Account")}>About</Text>
-  </View>
-);
-}
 
 const Stack = createNativeStackNavigator();
 export default function TransferStack() {
@@ -53,9 +30,7 @@ export default function TransferStack() {
       <Stack.Screen name="Result" component={Result} />
       
       
-      <Stack.Screen name="Settings" component={SettingsScreen} />
-      <Stack.Screen name="About" component={About} />
-      <Stack.Screen name="Abouts" component={Abouts} />
+     
     </Stack.Navigator>
   );
 }
