@@ -3,6 +3,7 @@ import {styles} from "../utils/styles";
 import { View, Text, ScrollView } from 'react-native';
 import KeypadComponent from '../components/KeypadComponent';
 import TokenField from './TokenField';
+import HeaderComponent from '../components/HeaderComponent';
 
 function SetPin ({navigation}){
     const [pin, setPin] = useState("");
@@ -52,6 +53,7 @@ function SetPin ({navigation}){
 
     return (
       <View style = {styles.container}>
+        <HeaderComponent/>
         <ScrollView showsVerticalScrollIndicator = {false}>
             <View style= {{marginBottom:8}}>
                 <Text style = {[styles.titleText,]} >Set PIN</Text>

@@ -8,7 +8,10 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
+  Image,
+  TouchableOpacity
 } from "react-native";
+import colors from "../utils/colors";
 
 const styles = StyleSheet.create({
   inputWrapper: {
@@ -43,12 +46,14 @@ export default function InputField({
   inputLabel,
   onChangeText,
   placeholder,
+  showBook = false,
   inputValue,
   keyboardType = "default",
   editable = true,
   multiline = false,
   secureTextEntry = false,
   maxLength = Number.MAX_SAFE_INTEGER,
+  onPressBookIcon,
 }) {
   let applyWidth = inputWidth ? { width: inputWidth } : { alignSelf: "stretch" };
 
@@ -60,7 +65,7 @@ export default function InputField({
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={[styles.inputWrapper, inputWrapperStyle]}>
-          <Text style={[styles.inputLabel, inputLabelStyle]}>{inputLabel}</Text>
+        {!showBook && (<Text style={[styles.inputLabel, inputLabelStyle]}>{inputLabel}</Text>)}
           <TextInput
             keyboardType={keyboardType}
             onChangeText={onChangeText}
@@ -79,6 +84,17 @@ export default function InputField({
               multiline && { height: 80 },
             ]}
           ></TextInput>
+
+        {showBook && (
+          <View>
+            <TouchableOpacity onPress={onPressBookIcon} style={{padding:10}}>
+              <Image
+                source={require('../assets/images/book.png')}
+                tintColor={"#828282"}
+              />
+            </TouchableOpacity>
+          </View>
+        )}
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>

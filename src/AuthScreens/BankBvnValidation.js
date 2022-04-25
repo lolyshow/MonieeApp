@@ -4,6 +4,7 @@ import { View, Text,StyleSheet,Button, ScrollView } from 'react-native';
 import InputField from '../components/InputField';
 import ButtonComponent from '../components/ButtonComponent';
 import MaskedTokenComponent from '../components/MaskedTokenComponent';
+import HeaderComponent from '../components/HeaderComponent';
 
 function BankBvnValidation ({navigation}){
     const [phoneNumber, setPhoneNumber] = useState("");
@@ -14,6 +15,7 @@ function BankBvnValidation ({navigation}){
 
     return (
       <View style = {styles.container}>
+        <HeaderComponent/>
         <View >
             <View style= {{marginBottom:8}}>
                 <Text style = {[styles.titleText,]} >Add your bank details</Text>
@@ -57,7 +59,7 @@ function BankBvnValidation ({navigation}){
 
                 <ButtonComponent
                         title="Submit"
-                        styleButton={{marginTop: 120,borderRadius:16}}
+                        styleButton={{marginTop: 100,borderRadius:16}}
                         onPress={handleSubmit}
                         buttonTittle={{color:"#FFFFFF",fontSize:14}}
                 />

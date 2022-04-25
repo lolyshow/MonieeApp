@@ -4,6 +4,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import colors from '../../utils/colors';
 import TransferStack from './StackNavigator';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Contact from '../../MainScreen/Contact/Contact';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -50,10 +51,10 @@ function TabNavigation(){
 
 
     <Tab.Screen
-        component={TransferStack}
+        component={Contact}
         name="Account"
         options={{
-          title: 'Transfer',
+          title: 'Account',
           tabBarIcon: ({focused}) => (
             <Image
               source={require('../../assets/images/profile.png')}

@@ -3,6 +3,7 @@ import {styles,} from "../utils/styles";
 import { View, Text, ScrollView } from 'react-native';
 import KeypadComponent from '../components/KeypadComponent';
 import TokenField from './TokenField';
+import HeaderComponent from '../components/HeaderComponent';
 
 function ConfirmPin ({navigation}){
     const [phoneNumber, setPhoneNumber] = useState("");
@@ -53,8 +54,11 @@ function ConfirmPin ({navigation}){
 
     return (
       <View style = {styles.container}>
+
+        <HeaderComponent/>
+
         <View>
-            <View style= {{marginBottom:8}}>
+            <View style= {{}}>
                 <Text style = {[styles.titleText,]} >Confirm PIN</Text>
                 <Text style = {[styles.bodyText,{marginTop:8}]} >Facilisis mauris, potenti vitae cras risus.</Text>
             </View>

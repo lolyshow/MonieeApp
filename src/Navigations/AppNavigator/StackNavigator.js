@@ -5,6 +5,8 @@ import SignUp from '../../AuthScreens/SignUp';
 import FundRequest from '../../MainScreen/Request/FundRequest';
 import colors from '../../utils/colors';
 import RequestMoney from '../../MainScreen/Request/RequestMoney';
+import SendMoney from '../../MainScreen/Request/SendMoney';
+import Result from '../../MainScreen/Request/Result';
 
 
 function SettingsScreen({navigation}) {
@@ -47,6 +49,10 @@ export default function TransferStack() {
     >
       <Stack.Screen name="FundRequest" component={FundRequest} />
       <Stack.Screen name="RequestMoney" component={RequestMoney} />
+      <Stack.Screen name="SendMoney" component={SendMoney} />
+      <Stack.Screen name="Result" component={Result} />
+      
+      
       <Stack.Screen name="Settings" component={SettingsScreen} />
       <Stack.Screen name="About" component={About} />
       <Stack.Screen name="Abouts" component={Abouts} />

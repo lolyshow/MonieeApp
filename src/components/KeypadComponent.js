@@ -10,15 +10,17 @@ const KeypadComponent = ({
   actionBtnClicked,
   setPinFunc,
   numbersPad,
-  customContainerStyle = null,
+  customContainerStyle = {},
   customNumpadStyle = null,
-  customNumberStyle = null
+  customNumberStyle = null,
+  leftKey = "C",
+  leftKeyText = "clear"
 }) => {
     return (
         <View style = {[{marginTop:20}]}>
 
             {numbersPad.map((numbers,index)=>{
-                return(<View key = {index} style = {[customContainerStyle,styles.numberContainer]}>
+                return(<View key = {index} style = {[styles.numberContainer,customContainerStyle]}>
                         {numbers.map((number)=>{
                 return(<TouchableOpacity key = {number} onPress = {()=>setPinFunc(number)}>
                             <View key = {number} style = {[customNumpadStyle,styles.numberPad]}>
@@ -31,21 +33,21 @@ const KeypadComponent = ({
 
             <View style = {styles.numberContainer}>
 
-                <TouchableOpacity onPress = {()=>actionBtnClicked("clear")}>    
+                <TouchableOpacity onPress = {()=>actionBtnClicked(leftKeyText)}>    
                     <View style = {styles.numberPad}>
-                        <Text style={[styles.number,{color:'#BDBDBD'}]}>{"C"}</Text>
+                        <Text style={[styles.number,{color:'#BDBDBD'}]}>{leftKey}</Text>
                     </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress = {()=>setPinFunc("0")}> 
-                    <View style = {styles.numberPad}>
-                        <Text style={styles.number}>{"0"}</Text>
+                    <View style = {customNumpadStyle,styles.numberPad}>
+                        <Text style={customNumberStyle,styles.number}>{"0"}</Text>
                     </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress = {()=>actionBtnClicked("backSpace")}> 
-                    <View style = {styles.numberPad}>
-                        <Text style={[styles.number,{color:'#BDBDBD'}]}>{"<"}</Text>
+                    <View style = {customNumpadStyle,styles.numberPad}>
+                        <Text style={[customNumberStyle,styles.number,{color:'#BDBDBD'}]}>{"<"}</Text>
                     </View>
                 </TouchableOpacity>
             </View>

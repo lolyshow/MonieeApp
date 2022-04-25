@@ -11,8 +11,14 @@ function FundRequest ({navigation}){
     const [phoneNumber, setPhoneNumber] = useState("");
     const [pin, setPin] = useState("");
     const [maskedPin, setMaskedPin] = useState("");
+
+    
     const handleSubmit =()=>{
         navigation.navigate("RequestMoney");
+    }
+
+    const handleSubmitSend =()=>{
+        navigation.navigate("SendMoney");
     }
 
     const numbersPad =[
@@ -103,7 +109,7 @@ function FundRequest ({navigation}){
                         <ButtonComponent
                             title="Send"
                             styleButton={{borderRadius:16,width:123,backgroundColor:colors.GREY}}
-                            onPress={handleSubmit}
+                            onPress={handleSubmitSend}
                             buttonTittle={{color:"#828282",fontSize:14,fontWeight:"800"}}
                         />
                         

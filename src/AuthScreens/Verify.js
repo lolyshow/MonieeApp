@@ -4,6 +4,7 @@ import { View, Text,StyleSheet,Button } from 'react-native';
 import InputField from '../components/InputField';
 import ButtonComponent from '../components/ButtonComponent';
 import MaskedTokenComponent from '../components/MaskedTokenComponent';
+import HeaderComponent from '../components/HeaderComponent';
 
 function Verify ({navigation}){
     const [phoneNumber, setPhoneNumber] = useState("");
@@ -15,12 +16,12 @@ function Verify ({navigation}){
     return (
       <View style = {[styles.container]}>
 
-        <View>
-          <Text>hi</Text>
-        </View>
+        <HeaderComponent
+            
+        />
 
         <View>
-            <View style= {{marginBottom:8}}>
+            <View style= {{}}>
                 <Text style = {[styles.titleText,]} >Verification</Text>
                 <Text style = {styles.bodyText} >Lacus integer imperdiet lacinia consectetur erat scelerisque.</Text>
             </View>

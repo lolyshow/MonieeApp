@@ -3,6 +3,7 @@ import {styles,button} from "../utils/styles";
 import { View, Text } from 'react-native';
 import InputField from '../components/InputField';
 import ButtonComponent from '../components/ButtonComponent';
+import HeaderComponent from '../components/HeaderComponent';
 
 function Login ({navigation}){
     const [phoneNumber, setPhoneNumber] = useState("");
@@ -13,6 +14,7 @@ function Login ({navigation}){
 
     return (
       <View style = {styles.container}>
+        <HeaderComponent/>
         <View>
             <View style= {{}}>
                 <Text style = {[styles.titleText,{marginBottom:8}]} >Login</Text>

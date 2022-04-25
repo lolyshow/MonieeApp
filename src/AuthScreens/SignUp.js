@@ -16,7 +16,7 @@ function SignUp ({navigation}){
         
         <View>
             <View style= {{}}>
-                <Text style = {[styles.titleText,{marginBottom:8}]} >Let’s begin</Text>
+                <Text style = {[styles.titleText,{marginBottom:8,fontFamily:"AbhayaLibre-Medium",}]} >Let’s begin</Text>
                 <Text style = {styles.bodyText} >Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
             </View>
 
@@ -34,7 +34,7 @@ function SignUp ({navigation}){
 
                <ButtonComponent
                     title="Get Started"
-                    styleButton={{marginTop: 220,borderRadius:16}}
+                    styleButton={{marginTop: 280,borderRadius:16}}
                     onPress={handleSubmit}
                     buttonTittle={{color:"#FFFFFF",fontSize:14}}
               />
